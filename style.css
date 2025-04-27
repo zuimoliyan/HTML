@@ -1,0 +1,10 @@
+li ::marker {
+    content: '✪';
+    color: #72349d;
+    font-size: 19px;
+}
+
+.li{
+    display: list-item;
+    list-style-position: inside;
+}

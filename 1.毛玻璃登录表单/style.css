@@ -1,0 +1,204 @@
+/*
+ * @Author: zuimoliyan
+ * @Date: 2025-04-24 19:16:39
+ * @LastEditTime: 2025-04-25 15:05:43
+ * @FilePath: \vscode\实战案例\1.毛玻璃登录表单\style.css
+ */
+
+/* CSS规则，用于导入Google Fonts提供的Poppins字体的各种样式和权重 */ 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* { /* 设置全局属性 */
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    font-family: poppins;
+    text-decoration: none;
+}
+
+body { /* 设置body属性 */
+    /* background-image: url(https://www.pixelstalk.net/wp-content/uploads/images6/Purple-Aesthetic-Wallpaper.jpg); */
+    background-image: url(./backGround_2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::after { /* 用于在body 后面添加一个遮罩效果，因为z-index设置为-1，所以他位于body控件的后面，（相反，如果z-index设置为0或任意正数则遮罩会覆盖body） 
+            注意点：1.当 z-index 为 -1 时，body::after 伪元素会被放置在 body 的背景层下方，但仍然会覆盖背景图片，因为背景图片是 body 的一部分，而不是一个独立的元素。
+                    2.当 z-index 为 1 或其他正数时，body::after 伪元素会被放置在 body 的内容上方，但仍然会覆盖背景图片。
+                
+                总结：这段代码的作用就是在body上设置一个遮罩效果，而这个遮罩效果正常只会影响body的background，其他元素不受影响，因为它们位于遮罩层上方。
+            */
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+
+#login-form { /* 设置整个登录 主体 界面的属性 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 45%;
+    padding: 50px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(0.5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+    overflow: hidden;
+}
+
+h1 { /* 设置一级标题属性 */
+    font-size: 3rem;
+    color: white;
+    margin: 0 0 50px;
+    letter-spacing: 3px;
+    animation: reloadA 1s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+.input-wrap { /* 设置登录输入框的属性 */
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    height: 60px;
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.499);
+}
+
+.in-1 {
+    animation: reloadA 1.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+.in-2 {
+    animation: reloadA 1.4s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
+
+input { /* 设置input空控件的属性 */
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: white;
+    padding: 5px 25px;
+}
+
+input::placeholder { /*这是一个CSS伪元素选择器，它专门用于选择输入框（input元素）中的占位符文本。占位符文本是用户在输入框中尚未输入任何内容时显示的提示信息*/
+    /*  在CSS中，某些属性确实可以从父元素继承到子元素，但占位符（placeholder）的样式并不是继承自输入框（input）的样式。
+        占位符文本是一个特殊的伪元素，它的样式需要单独定义，不会自动继承输入框的字体大小和颜色等属性。 
+    */
+    font-size: 1.2rem;
+    color: white;
+}
+
+.input-wrap i { /* 选择名为input-warp 元素内部的 i 元素 */
+    font-size: 1.2rem;
+    color: white;
+    padding-right: 25px;
+}
+
+
+.rem { /* 选项框的属性 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 40px;
+
+
+    animation: reloadA 1.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.8s;
+
+}
+
+.rem p,
+.rem a { /* 选择名为rem 元素内部的 p 和 a 元素 */
+    font-size: 1.2rem;
+    color: white;
+
+    cursor: pointer;
+}
+
+.rem a{
+    color: rgb(207, 247, 113);
+}
+
+button { /* 按钮控件属性 */
+    font-size: 1.2rem;
+    height: 60px;
+    width: 90%;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transform: 0.3s;
+
+    animation: reloadA 2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1s;
+}
+
+button:hover { /* 当鼠标移动到按钮上时的属性 */
+    background-color: rgb(199, 199, 199);
+}
+
+.reg { /* 没有账号提示文本的属性 */
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 40px;
+
+    animation: reloadA 2.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.2s;
+}
+
+.reg a { /* 选择名为reg 元素内部的  a 元素 */
+    font-weight: 500;
+    color: rgb(207, 247, 113);
+}
+
+
+.author{
+    color: white;
+font-size: 10px;
+    animation: reloadA 2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1.4s;
+}
+
+
+/* Amimation */
+
+/*元素会从向下移动 250 像素的位置开始，逐渐移动回原来的位置，并且在移动过程中逐渐变得完全不透明 */
+@keyframes reloadA { /* 定义一个名为 reloadA 的关键帧 */
+    from {
+        transform: translateY(250px); /* 将元素向下移动 250 像素 */
+    }
+
+    to {
+        transform: translateY(0); /* 将元素移动回原来的位置（不移动） */
+        opacity: 1; /* 透明度设置为完全不透明 */
+    }
+
+}
